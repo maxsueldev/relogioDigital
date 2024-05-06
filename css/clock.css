@@ -1,0 +1,144 @@
+/* CLOCK */
+
+.clock-container {
+    /* width: 100%; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* ANALOGIC CLOCK */
+
+.analogicClock {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    color: var(--color-white);
+    border-radius: 50%;
+    background-color: var(--color-black);
+    border: 2px solid blue;
+}
+
+.analogicClock::before {
+    content: '';
+    position: absolute;
+    left: calc(50%);
+    bottom: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    transform: translate(-50%, 50%);
+    z-index: 4;
+}
+
+.hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    transform-origin: bottom;
+    z-index: 3;
+}
+
+.hand:first-child {
+    background-color: var(--color-analogic-pointer1);
+    width: 4px;
+    height: 74px;
+}
+
+.hand:nth-child(2) {
+    background-color: var(--color-analogic-pointer2);
+    width: 3px;
+    height: 84px;
+}
+
+.hand:last-child {
+    background-color: var(--color-analogic-pointer3);
+    width: 1px;
+    height: 94px;
+}
+
+.clockNumbers .number {
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 26px;
+    font-weight: bold;
+    padding: 5px;    
+}
+
+.clockNumbers .number.number1 {
+    --rotation: 30deg;
+}
+
+.clockNumbers .number.number2 {
+    --rotation: 60deg;
+}
+
+.clockNumbers .number.number3 {
+    --rotation: 90deg;
+}
+
+.clockNumbers .number.number4 {
+    --rotation: 120deg;
+}
+
+.clockNumbers .number.number5 {
+    --rotation: 150deg;
+}
+
+.clockNumbers .number.number6 {
+    --rotation: 180deg;
+}
+
+.clockNumbers .number.number7 {
+    --rotation: 210deg;
+}
+
+.clockNumbers .number.number8 {
+    --rotation: 240deg;
+}
+
+.clockNumbers .number.number9 {
+    --rotation: 270deg;
+}
+
+.clockNumbers .number.number10 {
+    --rotation: 300deg;
+}
+
+.clockNumbers .number.number11 {
+    --rotation: 330deg;
+}
+
+.clockNumbers .number.number12 {
+    --rotation: 360deg;
+}
+
+/* DIGITAL CLOCK */
+
+.digitalClock {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 28px;
+    border: 2px solid var(--color-dark);
+    border-radius: 20px;
+    box-shadow: 8px 7px;
+    padding: 4px 24px;
+}

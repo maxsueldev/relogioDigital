@@ -1,0 +1,37 @@
+/* POMODORO */
+
+.pomodoro {
+    border: 2px solid var(--color-black);
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.pomodoro .title {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.pomodoro .timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 56px;
+    line-height: 40px;
+}
+
+.pomodoro .timer-info {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.pomodoro .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pomodoro .controls .pause {
+    display: none;
+}

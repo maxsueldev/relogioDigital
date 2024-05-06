@@ -1,0 +1,44 @@
+/* CRONOMETRO */
+
+.cronometro {
+    width: fit-content;
+    font-size: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid var(--color-dark);
+    border-radius: 10px;
+    padding: 6px 14px;
+}
+
+.cronometro .title {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* CRONOMETRO CONTROLS */
+
+.cronometro .controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cronometro .controls .pause {
+    display: none;
+}
+
+.hours::after, .minutes::after {
+    content: ':';
+    margin-left: 4px;
+}
+
+.play, .pause, .stop, .reset {
+    cursor: pointer;
+}
+
+.play:hover, .pause:hover, .stop:hover, .reset:hover {
+    filter: invert(0.5);                                  
+}

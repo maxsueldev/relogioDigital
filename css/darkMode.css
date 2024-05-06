@@ -1,0 +1,115 @@
+/* DARK MODE */
+
+.darkMode {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 20px;
+    right: 36px;
+}
+
+.container.dark {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+.container.dark .date {
+    color: var(--color-white);
+}
+
+.container.dark .digitalClock {
+    border: 2px solid var(--color-white);
+    box-shadow: 8px 7px var(--color-white);
+}
+
+.container.dark .cronometro, 
+.container.dark .pomodoro {
+    border: 2px solid var(--color-white);
+}
+
+.container.dark .cronometro svg,
+.container.dark .pomodoro svg {
+    fill: var(--color-white);
+    stroke: var(--color-white);
+}
+
+.container.dark .darkMode svg {
+    stroke: var(--color-white);
+}
+
+.container.dark .darkMode svg.moon {
+    stroke: blue;
+}
+
+.container.dark .analogicClock {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 2px solid var(--color-black);
+}
+
+.container.dark .hand:first-child, 
+.container.dark .hand:nth-child(2) {
+    background-color: var(--color-black);
+}
+
+.container.dark .analogicClock::before {
+    background-color: var(--color-black);
+}
+
+/* CHECKBOX DESIGN */
+
+.checkboxLabel {
+    width: 60px;
+    height: 26px;
+    cursor: pointer;
+    position: relative;
+    display: block;
+}
+
+.checkboxLabel input {
+    appearance: none;
+    position: relative;
+    z-index: 1;
+}
+
+.checkboxLabel span {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-unchecked);
+    border-radius: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.checkboxLabel input:checked ~ span {
+    background-color: var(--color-checked);
+}
+
+.checkboxLabel span i {
+    width: 22px;
+    height: 22px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    transition: 0.5s;
+}
+
+.checkboxLabel input:checked ~ span i {
+    left: 35px;
+} 
+
+/* SUN / MOON */
+
+.sun, .moon {
+    transition: all 1s ease;
+}
+
+.sun.active, .moon.active {
+    width: 64px;
+    height: 64px;
+}

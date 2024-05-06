@@ -1,0 +1,63 @@
+@import url('./clock.css');
+@import url('./cronometro.css');
+@import url('./pomodoro.css');
+@import url('./darkMode.css');
+
+:root {
+    --color-gray: #EFEFEF;
+    --color-dark: #3e3e42;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-checked: var(--color-black);
+    --color-unchecked: yellow;
+    --color-analogic-pointer1: #FFFFFF;
+    --color-analogic-pointer2: #FFFFFF;
+    --color-analogic-pointer3: #ff3d58;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-gray);
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+/* TIMER */
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* DATE */
+
+.date {
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-black);
+    position: absolute;
+    bottom: 20px;
+    right: 36px;
+}
+
+.date .day::after, .date .month::after {
+    content: '/';
+    margin-left: 1px;
+    margin-right: 1px;
+}
