@@ -45,10 +45,9 @@ const cronometroStop = document.querySelector('.cronometro .stop');
 const cronometroReset = document.querySelector('.cronometro .reset');
 
 let timeAtual = [0, 0, 0];
-let pomodoroSequence = [[0, 3], [0, 4], [0, 5], [0, 6]];
+let pomodoroSequence = [[25, 0], [0, 5], [5, 0], [0, 5]];
 let pomodoroTotal = [pomodoroSequence, pomodoroSequence, pomodoroSequence, pomodoroSequence];
 
-// console.log(pomodoroTotal[0][2][1]);
 let indexPomodoroTotal = 0;
 let indexPomodoroSequence = 0;
 
@@ -151,8 +150,8 @@ function renderResetTimer(typeTimer) {
         cronometroMinutes.textContent = '00';
         cronometroSeconds.textContent = '00';
     } else if (typeTimer === 'pomodoro') {
-        pomodoroMinutes.textContent = '00';
-        pomodoroSeconds.textContent = '03';
+        pomodoroMinutes.textContent = '25';
+        pomodoroSeconds.textContent = '00';
     }
 }
 
@@ -161,7 +160,6 @@ function setPropertyRotation(element, value) {
 }
 
 function playPomodoro() {
-
     if(indexPomodoroTotal > pomodoroTotal.length - 1) return;
 
     
@@ -192,7 +190,10 @@ function playPomodoro() {
         } else {
             indexPomodoroTotal += 1;
             indexPomodoroSequence = 0;
-            pomodoroSequence = [[0, 3], [0, 4], [0, 5], [0, 6]];
+            pomodoroSequence = [[25, 0], [0, 5], [5, 0], [0, 5]];
+            pomodoroTotal = [pomodoroSequence, pomodoroSequence, pomodoroSequence, pomodoroSequence];
+            let nextInitialValue = verificaUnidade(pomodoroTotal[indexPomodoroTotal][indexPomodoroSequence]);
+            renderTimeSpans('pomodoro', nextInitialValue[0], nextInitialValue[1]);
         }
         return;
     }
@@ -261,8 +262,10 @@ pomodoroStop.addEventListener('click', () => {
     pomodoroPlay.classList.remove('active');
     alterDisplay(pomodoroPause, pomodoroPlay);
     renderResetTimer('pomodoro');
-    pomodoroSequence = [[0, 3], [0, 4], [0, 5], [0, 6]];
     indexPomodoro = 0;
+    indexPomodoroTotal = 0;
+    pomodoroSequence = [[25, 0], [0, 5], [5, 0], [0, 5]];
+    pomodoroTotal = [pomodoroSequence, pomodoroSequence, pomodoroSequence, pomodoroSequence];
 });
 
 // CRONOMETRO CONTROLS
@@ -310,14 +313,15 @@ setInterval(() => {
             pomodoroPlay.classList.remove('active');
             alterDisplay(pomodoroPause, pomodoroPlay);
             renderResetTimer('pomodoro');
-            pomodoroSequence = [[0, 3], [0, 4], [0, 5], [0, 6]];
+            pomodoroSequence = [[25, 0], [0, 5], [5, 0], [0, 5]];
+            pomodoroTotal = [pomodoroSequence, pomodoroSequence, pomodoroSequence, pomodoroSequence];
             indexPomodoro = 0;
+            indexPomodoroTotal = 0;
         }
     }
 }, 1000);
 
 
-// checkbox reset auto pomodoro
 // pomodoro timer info
 
 
